@@ -12,22 +12,10 @@
    const [flexDirection, setflexDirection] = useState("column");
  
    return (
-     <PreviewLayout
-       label="flexDirection"
-       values={["column", "row", "row-reverse", "column-reverse"]}
-       selectedValue={flexDirection}
-       setSelectedValue={setflexDirection}
-     >
-       <View
-         style={[styles.box, { backgroundColor: "powderblue" }]}
-       />
-       <View
-         style={[styles.box, { backgroundColor: "skyblue" }]}
-       />
-       <View
-         style={[styles.box, { backgroundColor: "steelblue" }]}
-       />
-     </PreviewLayout>
+    <View style={{ flex:1, flexDirection: "row" }}>
+      <View style={{ flex: 1, backgroundColor: "red"}}></View>
+      <View style={{ flex: 1, backgroundColor: "green"}}></View>
+    </View>
    );
  };
  
@@ -75,7 +63,6 @@
    },
    box: {
      width: 50,
-     height: 50,
    },
    row: {
      flexDirection: "row",
