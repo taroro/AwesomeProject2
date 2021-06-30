@@ -12,9 +12,16 @@
    const [flexDirection, setflexDirection] = useState("column");
  
    return (
-    <View style={{ flex:1, flexDirection: "row" }}>
-      <View style={{ flex: 1, backgroundColor: "red"}}></View>
-      <View style={{ flex: 1, backgroundColor: "green"}}></View>
+    <View style={{ flex:1, flexDirection: "column" }}>
+      <View style={{ flex:2, flexDirection: "row" }}>
+        <View style={{ flex: 1, backgroundColor: "red"}}><Text>1</Text></View>
+        <View style={{ flex: 1, backgroundColor: "green"}}><Text>2</Text></View>
+      </View>
+      <View style={{ flex:1, flexDirection: "row" }}>
+        <View style={{ flex: 2, backgroundColor: "blue"}}><Text>3</Text></View>
+        <View style={{ flex: 1, backgroundColor: "white"}}><Text>4</Text></View>
+        <View style={{ flex: 1, backgroundColor: "purple"}}><Text>5</Text></View>
+      </View>
     </View>
    );
  };
