@@ -13,14 +13,17 @@
  
    return (
     <View style={{ flex:1, flexDirection: "column" }}>
-      <View style={{ flex:2, flexDirection: "row" }}>
-        <View style={{ flex: 1, backgroundColor: "red"}}><Text>1</Text></View>
-        <View style={{ flex: 1, backgroundColor: "green"}}><Text>2</Text></View>
+      <View style={{ flex:1, flexDirection: "row", justifyContent:"space-evenly" }}>
+        <View style={{width: 50, height:50, backgroundColor: "red"}}><Text>1</Text></View>
+        <View style={{width: 50, height:50, backgroundColor: "green"}}><Text>2</Text></View>
+        <View style={{width: 50, height:50, backgroundColor: "blue"}}><Text>3</Text></View>
+        <View style={{width: 50, height:50, backgroundColor: "purple"}}><Text>5</Text></View>
+        <View style={{width: 50, height:50, backgroundColor: "salmon"}}><Text>5</Text></View>
       </View>
       <View style={{ flex:1, flexDirection: "row" }}>
-        <View style={{ flex: 2, backgroundColor: "blue"}}><Text>3</Text></View>
-        <View style={{ flex: 1, backgroundColor: "white"}}><Text>4</Text></View>
-        <View style={{ flex: 1, backgroundColor: "purple"}}><Text>5</Text></View>
+        <View style={{width: 50, height:50, backgroundColor: "blue"}}><Text>3</Text></View>
+        <View style={{width: 50, height:50, backgroundColor: "white"}}><Text>4</Text></View>
+        <View style={{width: 50, height:50, backgroundColor: "purple"}}><Text>5</Text></View>
       </View>
     </View>
    );
