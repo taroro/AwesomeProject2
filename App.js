@@ -4,10 +4,18 @@ import { TextInput, View, Picker, Button } from 'react-native';
 const Calculator = () => {
   const [a, setA] = useState(0);
   const [b, setB] = useState(0);
-  const [selectedValue, setSelectedValue] = useState("+");
+  const [selectedValue, setSelectedValue] = useState("plus");
 
   const calculate = () => {
-    alert(parseFloat(a)+parseFloat(b))
+    if(selectedValue == 'plus') {
+      alert(parseFloat(a)+parseFloat(b))
+    } else if(selectedValue == 'minus') {
+      alert(parseFloat(a)-parseFloat(b))
+    } else if(selectedValue == 'multiple') {
+      alert(parseFloat(a)*parseFloat(b))
+    } else if(selectedValue == 'divide') {
+      alert(parseFloat(a)/parseFloat(b))
+    }
   }
 
   return (
