@@ -1,117 +1,40 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
- import React, { useState } from "react";
- import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
- 
- const FlexDirectionBasics = () => {
-   const [flexDirection, setflexDirection] = useState("column");
- 
-   return (
-    <View style={{ flex:1, flexDirection: "column" }}>
-      <View style={{ flex:1, flexDirection: "row" }}>
-        <View style={{ flex: 1, backgroundColor: "blue"}}>
-          <View style={{ backgroundColor:"black", width:50, height: 50}}></View>
-        </View>
-        <View style={{ flex: 1, flexDirection:"row", backgroundColor: "green", justifyContent: "flex-end"}}>
-          <View style={{ backgroundColor:"black", width:50, height: 50}}></View>
-        </View>
-      </View>
-      <View style={{ flex:1, flexDirection: "row" }}>
-        <View style={{ flex: 1, backgroundColor: "yellow", justifyContent: "flex-end"}}>
-          <View style={{ backgroundColor:"black", width:50, height: 50}}></View>
-        </View>
-        <View style={{ flex: 1, flexDirection:"column", backgroundColor: "red", justifyContent:"flex-end"}}>
-          <View style={{ height:50, flexDirection:"row", justifyContent:"flex-end"}}>
-            <View style={{ backgroundColor:"black", width:50, height: 50}}></View>
-          </View>
-        </View>
-      </View>
+import React, { useState } from 'react';
+import { TextInput, View, Picker, Button } from 'react-native';
+
+const Calculator = () => {
+  const [a, setA] = useState(0);
+  const [b, setB] = useState(0);
+  const [selectedValue, setSelectedValue] = useState("+");
+
+  const calculate = () => {
+    alert(parseFloat(a)+parseFloat(b))
+  }
+
+  return (
+    <View style={{padding: 10}}>
+      <TextInput
+        style={{height: 40, borderColor:"#000000", borderWidth:1}}
+        placeholder="Firstname"
+        onChangeText={text => setA(text)}
+      />
+      <Picker
+        selectedValue={selectedValue}
+        style={{ height: 50 }}
+        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+      >
+        <Picker.Item label="+" value="plus" />
+        <Picker.Item label="-" value="minus" />
+        <Picker.Item label="x" value="multiple" />
+        <Picker.Item label="/" value="divide" />
+      </Picker>
+      <TextInput
+        style={{height: 40, borderColor:"#000000", borderWidth:1}}
+        placeholder="Lastname"
+        onChangeText={text => setB(text)}
+      />
+      <Button title="Click me!!!" onPress={ calculate } />
     </View>
-   );
- };
- 
- const PreviewLayout = ({
-   label,
-   children,
-   values,
-   selectedValue,
-   setSelectedValue,
- }) => (
-   <View style={{ padding: 10, flex: 1 }}>
-     <Text style={styles.label}>{label}</Text>
-     <View style={styles.row}>
-       {values.map((value) => (
-         <TouchableOpacity
-           key={value}
-           onPress={() => setSelectedValue(value)}
-           style={[
-             styles.button,
-             selectedValue === value && styles.selected,
-           ]}
-         >
-           <Text
-             style={[
-               styles.buttonLabel,
-               selectedValue === value && styles.selectedLabel,
-             ]}
-           >
-             {value}
-           </Text>
-         </TouchableOpacity>
-       ))}
-     </View>
-     <View style={[styles.container, { [label]: selectedValue }]}>
-       {children}
-     </View>
-   </View>
- );
- 
- const styles = StyleSheet.create({
-   container: {
-     flex: 1,
-     marginTop: 8,
-     backgroundColor: "aliceblue",
-   },
-   box: {
-     width: 50,
-   },
-   row: {
-     flexDirection: "row",
-     flexWrap: "wrap",
-   },
-   button: {
-     paddingHorizontal: 8,
-     paddingVertical: 6,
-     borderRadius: 4,
-     backgroundColor: "oldlace",
-     alignSelf: "flex-start",
-     marginHorizontal: "1%",
-     marginBottom: 6,
-     minWidth: "48%",
-     textAlign: "center",
-   },
-   selected: {
-     backgroundColor: "coral",
-     borderWidth: 0,
-   },
-   buttonLabel: {
-     fontSize: 12,
-     fontWeight: "500",
-     color: "coral",
-   },
-   selectedLabel: {
-     color: "white",
-   },
-   label: {
-     textAlign: "center",
-     marginBottom: 10,
-     fontSize: 24,
-   },
- });
- 
- export default FlexDirectionBasics;
+  );
+}
+
+export default Calculator;
